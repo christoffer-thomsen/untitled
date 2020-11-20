@@ -21,32 +21,22 @@ class GildedRose {
             return;
         }
         if (wrapper.item.name.equals("Aged Brie")) {
-            if (wrapper.item.quality < 50) {
-                wrapper.item.quality = wrapper.item.quality + 1;
-            }
+            increaseQuality(wrapper);
 
             decreaseSellIn(wrapper.item);
 
             if (isExpired(wrapper.item)) {
-                if (wrapper.item.quality < 50) {
-                    wrapper.item.quality = wrapper.item.quality + 1;
-                }
+                increaseQuality(wrapper);
             }
         } else if (wrapper.item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (wrapper.item.quality < 50) {
-                wrapper.item.quality = wrapper.item.quality + 1;
-            }
+            increaseQuality(wrapper);
 
             if (wrapper.item.sellIn < 11) {
-                if (wrapper.item.quality < 50) {
-                    wrapper.item.quality = wrapper.item.quality + 1;
-                }
+                increaseQuality(wrapper);
             }
 
             if (wrapper.item.sellIn < 6) {
-                if (wrapper.item.quality < 50) {
-                    wrapper.item.quality = wrapper.item.quality + 1;
-                }
+                increaseQuality(wrapper);
             }
 
             decreaseSellIn(wrapper.item);
@@ -62,6 +52,12 @@ class GildedRose {
             if (isExpired(wrapper.item)) {
                 decreaseQuality(wrapper.item);
             }
+        }
+    }
+
+    private void increaseQuality(ItemWrapper wrapper) {
+        if (wrapper.item.quality < 50) {
+            wrapper.item.quality = wrapper.item.quality + 1;
         }
     }
 
