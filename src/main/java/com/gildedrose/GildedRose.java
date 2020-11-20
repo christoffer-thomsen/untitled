@@ -25,7 +25,7 @@ class GildedRose {
 
             wrapper.decreaseSellIn();
 
-            if (isExpired(wrapper.item)) {
+            if (wrapper.item.sellIn < 0) {
                 wrapper.increaseQuality();
             }
         } else if (wrapper.item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -41,7 +41,7 @@ class GildedRose {
 
             wrapper.decreaseSellIn();
 
-            if (isExpired(wrapper.item)) {
+            if (wrapper.item.sellIn < 0) {
                 wrapper.item.quality = 0;
             }
         } else {
@@ -49,14 +49,10 @@ class GildedRose {
 
             wrapper.decreaseSellIn();
 
-            if (isExpired(wrapper.item)) {
+            if (wrapper.item.sellIn < 0) {
                 decreaseQuality(wrapper.item);
             }
         }
-    }
-
-    private boolean isExpired(Item item) {
-        return item.sellIn < 0;
     }
 
     private void decreaseQuality(Item item) {
