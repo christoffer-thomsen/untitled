@@ -195,4 +195,21 @@ class GildedRoseTest {
         assertEquals(0, items[0].quality);
 
     }
+    @Test
+    void qualityOfConjuredItemsDegradesTwiceAsFAstAsRegularItems() {
+        int initialQuality = 6;
+        Item conjured = new Item("Conjured", 10, initialQuality);
+        Item regular = new Item("Regular", 10, initialQuality);
+        Item[] items = new Item[]{conjured, regular};
+
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        var deltaConjured = initialQuality - conjured.quality;
+        var deltaRegular = initialQuality - regular.quality;
+
+        assertEquals(2*deltaRegular, deltaConjured);
+
+    }
 }
