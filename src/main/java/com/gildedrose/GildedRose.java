@@ -9,12 +9,12 @@ class GildedRose {
 
     public void updateQuality() {
         for (final var item : items) {
-            final var applesauce = new Applesauce(item);
+            final var applesauce = new ItemWrapper(item);
             doSomething(applesauce);
         }
     }
 
-    private void doSomething(Applesauce applesauce) {
+    private void doSomething(ItemWrapper applesauce) {
         if (applesauce.item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         }
@@ -73,10 +73,10 @@ class GildedRose {
         }
     }
 
-    private static class Applesauce {
+    private static class ItemWrapper {
         final Item item;
 
-        public Applesauce(Item item) {
+        public ItemWrapper(Item item) {
             this.item = item;
         }
     }
