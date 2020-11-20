@@ -27,15 +27,11 @@ class ItemWrapper {
         }
     }
 
-    public String name() {
-        return item.name;
-    }
-
     public void updateQuality() {
-        if (name().equals("Sulfuras, Hand of Ragnaros")) {
+        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         }
-        if (name().equals("Aged Brie")) {
+        if (item.name.equals("Aged Brie")) {
             increaseQuality();
 
             decreaseSellIn();
@@ -43,7 +39,7 @@ class ItemWrapper {
             if (isExpired()) {
                 increaseQuality();
             }
-        } else if (name().equals("Backstage passes to a TAFKAL80ETC concert")) {
+        } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             increaseQuality();
 
             if (item.sellIn < 11) {
