@@ -17,10 +17,11 @@ class GildedRose {
     }
 
     private void doSomething(ItemWrapper wrapper) {
-        if (wrapper.item.name.equals("Sulfuras, Hand of Ragnaros")) {
+        final var itemName = wrapper.item.name;
+        if (itemName.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         }
-        if (wrapper.item.name.equals("Aged Brie")) {
+        if (itemName.equals("Aged Brie")) {
             wrapper.increaseQuality();
 
             wrapper.decreaseSellIn();
@@ -28,7 +29,7 @@ class GildedRose {
             if (wrapper.isExpired()) {
                 wrapper.increaseQuality();
             }
-        } else if (wrapper.item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+        } else if (itemName.equals("Backstage passes to a TAFKAL80ETC concert")) {
             wrapper.increaseQuality();
 
             if (wrapper.item.sellIn < 11) {
