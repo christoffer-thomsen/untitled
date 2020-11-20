@@ -182,4 +182,17 @@ class GildedRoseTest {
         assertEquals(16, items[0].quality);
 
     }
+    @Test
+    void qualityOfConjuredItemsCannotDegradeBelowZero() {
+        Item[] items = new Item[]{
+            new Item("Conjured", 10, 1)
+        };
+
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(0, items[0].quality);
+
+    }
 }
