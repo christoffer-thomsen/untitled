@@ -45,17 +45,19 @@ class GildedRose {
                 wrapper.item.quality = 0;
             }
         } else {
-            if (wrapper.item.quality > 0) {
-                wrapper.item.quality = wrapper.item.quality - 1;
-            }
+            decreaseQuality(wrapper);
 
             wrapper.decreaseSellIn();
 
             if (wrapper.isExpired()) {
-                if (wrapper.item.quality > 0) {
-                    wrapper.item.quality = wrapper.item.quality - 1;
-                }
+                decreaseQuality(wrapper);
             }
+        }
+    }
+
+    private void decreaseQuality(ItemWrapper wrapper) {
+        if (wrapper.item.quality > 0) {
+            wrapper.item.quality = wrapper.item.quality - 1;
         }
     }
 
