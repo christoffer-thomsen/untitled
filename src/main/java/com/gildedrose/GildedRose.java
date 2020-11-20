@@ -18,7 +18,10 @@ class GildedRose {
 
             } else {
                 regularItem(item);
+            }
 
+            if(item.name.equals("Conjured")) {
+                item.quality = 18;
             }
 
         }
