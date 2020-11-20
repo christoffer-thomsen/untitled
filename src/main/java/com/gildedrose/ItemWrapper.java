@@ -21,7 +21,7 @@ class ItemWrapper {
         return item.sellIn < 0;
     }
 
-    public void decreaseQuality() {
+    private void decreaseQuality() {
         if (item.quality > 0) {
             item.quality = item.quality - 1;
         }
