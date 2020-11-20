@@ -13,7 +13,7 @@ class ItemWrapper {
         }
     }
 
-    public void decreaseSellIn() {
+    private void decreaseSellIn() {
         item.sellIn = item.sellIn - 1;
     }
 
