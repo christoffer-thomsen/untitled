@@ -13,7 +13,7 @@ class GildedRose {
         Arrays
             .stream(items)
             .map(ItemWrapper::new)
-            .forEach(ItemWrapper::doSomething);
+            .forEach(ItemWrapper::updateQuality);
     }
 
     private static class ItemWrapper {
@@ -47,7 +47,7 @@ class GildedRose {
             return item.name;
         }
 
-        public void doSomething() {
+        public void updateQuality() {
             if (name().equals("Sulfuras, Hand of Ragnaros")) {
                 return;
             }
