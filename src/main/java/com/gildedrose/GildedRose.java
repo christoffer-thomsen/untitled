@@ -26,16 +26,18 @@ class GildedRose {
     }
 
     private void regularItem(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
+        DecreaseQuality(item);
 
         DecreaseSellIn(item);
 
         if (item.sellIn < 0) {
-            if (item.quality > 0) {
-                item.quality = item.quality - 1;
-            }
+            DecreaseQuality(item);
+        }
+    }
+
+    private void DecreaseQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
         }
     }
 
