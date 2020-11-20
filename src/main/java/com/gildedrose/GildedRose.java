@@ -17,7 +17,7 @@ class GildedRose {
     }
 
     private static class ItemWrapper {
-        final Item item;
+        private final Item item;
 
         public ItemWrapper(Item item) {
             this.item = item;
