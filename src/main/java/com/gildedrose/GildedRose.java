@@ -17,7 +17,7 @@ class GildedRose {
             } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
 
             } else if (item.name.equals("Conjured")) {
-                item.quality = 18;
+                item.quality -= 2;
             } else {
                 regularItem(item);
             }
