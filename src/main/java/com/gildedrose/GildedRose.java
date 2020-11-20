@@ -8,7 +8,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (final Item item : items) {
+        for (final var item : items) {
             if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 continue;
             }
