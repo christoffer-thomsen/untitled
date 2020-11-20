@@ -9,9 +9,10 @@ class GildedRose {
 
     public void updateQuality() {
         for (final Item item : items) {
-            applesauce(item);
             if (true) {
+                applesauce(item);
             } else {
+                applesauce(item);
             }
         }
     }
