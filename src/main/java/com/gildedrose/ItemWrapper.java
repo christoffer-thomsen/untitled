@@ -7,7 +7,7 @@ class ItemWrapper {
         this.item = item;
     }
 
-    public void increaseQuality() {
+    private void increaseQuality() {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }
