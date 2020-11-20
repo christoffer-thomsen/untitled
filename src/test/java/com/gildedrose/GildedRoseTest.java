@@ -171,7 +171,7 @@ class GildedRoseTest {
     @Test
     void conjuredItemsAfterTwoDays() {
         Item[] items = new Item[]{
-            new Item("Conjured", 10, 20)
+                new Item("Conjured", 10, 20)
         };
 
         GildedRose app = new GildedRose(items);
@@ -182,10 +182,11 @@ class GildedRoseTest {
         assertEquals(16, items[0].quality);
 
     }
+
     @Test
     void qualityOfConjuredItemsCannotDegradeBelowZero() {
         Item[] items = new Item[]{
-            new Item("Conjured", 10, 1)
+                new Item("Conjured", 10, 1)
         };
 
         GildedRose app = new GildedRose(items);
@@ -195,6 +196,7 @@ class GildedRoseTest {
         assertEquals(0, items[0].quality);
 
     }
+
     @Test
     void qualityOfConjuredItemsDegradesTwiceAsFAstAsRegularItems() {
         int initialQuality = 6;
@@ -209,7 +211,23 @@ class GildedRoseTest {
         var deltaConjured = initialQuality - conjured.quality;
         var deltaRegular = initialQuality - regular.quality;
 
-        assertEquals(2*deltaRegular, deltaConjured);
+        assertEquals(2 * deltaRegular, deltaConjured);
+    }
 
+    @Test
+    void qualityOfConjuredItemsDegradesTwiceAsFAstAsRegularItemsAfterExpiration() {
+        int initialQuality = 6;
+        Item conjured = new Item("Conjured", 0, initialQuality);
+        Item regular = new Item("Regular", 0, initialQuality);
+        Item[] items = new Item[]{conjured, regular};
+
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        var deltaConjured = initialQuality - conjured.quality;
+        var deltaRegular = initialQuality - regular.quality;
+
+        assertEquals(2 * deltaRegular, deltaConjured);
     }
 }

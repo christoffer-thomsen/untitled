@@ -19,6 +19,11 @@ class GildedRose {
             } else if (item.name.equals("Conjured")) {
                 DecreaseQuality(item);
                 DecreaseQuality(item);
+                DecreaseSellIn(item);
+                if (item.sellIn < 0) {
+                    DecreaseQuality(item);
+                    DecreaseQuality(item);
+                }
             } else {
                 regularItem(item);
             }
