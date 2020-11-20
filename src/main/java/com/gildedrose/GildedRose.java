@@ -44,7 +44,10 @@ class GildedRose {
                     item.quality = 0;
                 }
             } else {
-                applesauce(item);
+                if (true) {
+                    applesauce(item);
+                } else {
+                }
             }
         }
     }
