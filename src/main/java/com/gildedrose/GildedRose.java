@@ -23,7 +23,7 @@ class GildedRose {
         if (wrapper.item.name.equals("Aged Brie")) {
             wrapper.increaseQuality();
 
-            wrapper.item.sellIn = wrapper.item.sellIn - 1;
+            decreaseSellIn(wrapper);
 
             if (isExpired(wrapper.item)) {
                 wrapper.increaseQuality();
@@ -39,7 +39,7 @@ class GildedRose {
                 wrapper.increaseQuality();
             }
 
-            wrapper.item.sellIn = wrapper.item.sellIn - 1;
+            decreaseSellIn(wrapper);
 
             if (isExpired(wrapper.item)) {
                 wrapper.item.quality = 0;
@@ -47,12 +47,16 @@ class GildedRose {
         } else {
             decreaseQuality(wrapper.item);
 
-            wrapper.item.sellIn = wrapper.item.sellIn - 1;
+            decreaseSellIn(wrapper);
 
             if (isExpired(wrapper.item)) {
                 decreaseQuality(wrapper.item);
             }
         }
+    }
+
+    private void decreaseSellIn(ItemWrapper wrapper) {
+        wrapper.item.sellIn = wrapper.item.sellIn - 1;
     }
 
     private boolean isExpired(Item item) {
