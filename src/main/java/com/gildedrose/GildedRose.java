@@ -16,12 +16,10 @@ class GildedRose {
                 backstagePasses(item);
             } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
 
+            } else if (item.name.equals("Conjured")) {
+                item.quality = 18;
             } else {
                 regularItem(item);
-            }
-
-            if(item.name.equals("Conjured")) {
-                item.quality = 18;
             }
 
         }
