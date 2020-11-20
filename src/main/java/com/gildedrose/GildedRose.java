@@ -9,6 +9,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (final var item : items) {
+            final var applesauce = new Applesauce(item);
             if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 continue;
             }
@@ -68,4 +69,11 @@ class GildedRose {
         }
     }
 
+    private static class Applesauce {
+        final Item item;
+
+        public Applesauce(Item item) {
+            this.item = item;
+        }
+    }
 }
