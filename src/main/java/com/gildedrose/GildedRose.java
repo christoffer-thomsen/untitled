@@ -10,40 +10,40 @@ class GildedRose {
     public void updateQuality() {
         for (final var item : items) {
             final var applesauce = new Applesauce(item);
-            if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            if (applesauce.item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 continue;
             }
-            if (item.name.equals("Aged Brie")) {
-                increaseQuality(item);
+            if (applesauce.item.name.equals("Aged Brie")) {
+                increaseQuality(applesauce.item);
 
-                decreaseSellIn(item);
+                decreaseSellIn(applesauce.item);
 
-                if (isExpired(item)) {
-                    increaseQuality(item);
+                if (isExpired(applesauce.item)) {
+                    increaseQuality(applesauce.item);
                 }
-            } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                increaseQuality(item);
+            } else if (applesauce.item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                increaseQuality(applesauce.item);
 
-                if (item.sellIn < 11) {
-                    increaseQuality(item);
-                }
-
-                if (item.sellIn < 6) {
-                    increaseQuality(item);
+                if (applesauce.item.sellIn < 11) {
+                    increaseQuality(applesauce.item);
                 }
 
-                decreaseSellIn(item);
+                if (applesauce.item.sellIn < 6) {
+                    increaseQuality(applesauce.item);
+                }
 
-                if (isExpired(item)) {
-                    item.quality = 0;
+                decreaseSellIn(applesauce.item);
+
+                if (isExpired(applesauce.item)) {
+                    applesauce.item.quality = 0;
                 }
             } else {
-                decreaseQuality(item);
+                decreaseQuality(applesauce.item);
 
-                decreaseSellIn(item);
+                decreaseSellIn(applesauce.item);
 
-                if (isExpired(item)) {
-                    decreaseQuality(item);
+                if (isExpired(applesauce.item)) {
+                    decreaseQuality(applesauce.item);
                 }
             }
         }
