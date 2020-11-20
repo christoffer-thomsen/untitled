@@ -13,46 +13,7 @@ class GildedRose {
         Arrays
             .stream(items)
             .map(ItemWrapper::new)
-            .forEach(this::doSomething);
-    }
-
-    private void doSomething(ItemWrapper wrapper) {
-        if (wrapper.name().equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        }
-        if (wrapper.name().equals("Aged Brie")) {
-            wrapper.increaseQuality();
-
-            wrapper.decreaseSellIn();
-
-            if (wrapper.isExpired()) {
-                wrapper.increaseQuality();
-            }
-        } else if (wrapper.name().equals("Backstage passes to a TAFKAL80ETC concert")) {
-            wrapper.increaseQuality();
-
-            if (wrapper.item.sellIn < 11) {
-                wrapper.increaseQuality();
-            }
-
-            if (wrapper.item.sellIn < 6) {
-                wrapper.increaseQuality();
-            }
-
-            wrapper.decreaseSellIn();
-
-            if (wrapper.isExpired()) {
-                wrapper.item.quality = 0;
-            }
-        } else {
-            wrapper.decreaseQuality();
-
-            wrapper.decreaseSellIn();
-
-            if (wrapper.isExpired()) {
-                wrapper.decreaseQuality();
-            }
-        }
+            .forEach(ItemWrapper::doSomething);
     }
 
     private static class ItemWrapper {
@@ -84,6 +45,45 @@ class GildedRose {
 
         public String name() {
             return item.name;
+        }
+
+        public void doSomething() {
+            if (name().equals("Sulfuras, Hand of Ragnaros")) {
+                return;
+            }
+            if (name().equals("Aged Brie")) {
+                increaseQuality();
+
+                decreaseSellIn();
+
+                if (isExpired()) {
+                    increaseQuality();
+                }
+            } else if (name().equals("Backstage passes to a TAFKAL80ETC concert")) {
+                increaseQuality();
+
+                if (item.sellIn < 11) {
+                    increaseQuality();
+                }
+
+                if (item.sellIn < 6) {
+                    increaseQuality();
+                }
+
+                decreaseSellIn();
+
+                if (isExpired()) {
+                    item.quality = 0;
+                }
+            } else {
+                decreaseQuality();
+
+                decreaseSellIn();
+
+                if (isExpired()) {
+                    decreaseQuality();
+                }
+            }
         }
     }
 }
