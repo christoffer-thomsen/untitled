@@ -133,7 +133,7 @@ class GildedRoseTest {
             "\n";
 
     @Test
-    void foo() {
+    void goldenMaster() {
 
         // Create a stream to hold the output
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
