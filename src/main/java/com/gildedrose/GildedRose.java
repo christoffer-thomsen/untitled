@@ -25,6 +25,7 @@ class GildedRose {
                 if (true) {
                     applesauce(item);
                 } else {
+                    applesauce(item);
                 }
             }
         }
