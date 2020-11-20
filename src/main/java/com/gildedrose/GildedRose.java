@@ -13,7 +13,7 @@ class GildedRose {
             if (item.name.equals("Aged Brie")) {
                 IncreaseQuality(item);
 
-                item.sellIn = item.sellIn - 1;
+                DecreaseSellIn(item);
 
                 if (item.sellIn < 0) {
                     IncreaseQuality(item);
@@ -31,7 +31,7 @@ class GildedRose {
                     }
                 }
 
-                item.sellIn = item.sellIn - 1;
+                DecreaseSellIn(item);
 
                 if (item.sellIn < 0) {
                     item.quality = 0;
@@ -43,7 +43,7 @@ class GildedRose {
                     item.quality = item.quality - 1;
                 }
 
-                item.sellIn = item.sellIn - 1;
+                DecreaseSellIn(item);
 
                 if (item.sellIn < 0) {
                     if (item.quality > 0) {
@@ -54,6 +54,10 @@ class GildedRose {
             }
 
         }
+    }
+
+    private void DecreaseSellIn(Item item) {
+        item.sellIn = item.sellIn - 1;
     }
 
     private void IncreaseQuality(Item item) {
