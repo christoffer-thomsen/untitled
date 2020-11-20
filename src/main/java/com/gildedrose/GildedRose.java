@@ -17,7 +17,7 @@ class GildedRose {
     }
 
     private void doSomething(ItemWrapper wrapper) {
-        final var itemName = wrapper.item.name;
+        final var itemName = getName(wrapper);
         if (itemName.equals("Sulfuras, Hand of Ragnaros")) {
             return;
         }
@@ -54,6 +54,10 @@ class GildedRose {
                 wrapper.decreaseQuality();
             }
         }
+    }
+
+    private String getName(ItemWrapper wrapper) {
+        return wrapper.item.name;
     }
 
     private static class ItemWrapper {
