@@ -11,13 +11,7 @@ class GildedRose {
         for (Item item : items) {
 
             if (item.name.equals("Aged Brie")) {
-                IncreaseQuality(item);
-
-                DecreaseSellIn(item);
-
-                if (item.sellIn < 0) {
-                    IncreaseQuality(item);
-                }
+                agedBrie(item);
             } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
@@ -53,6 +47,16 @@ class GildedRose {
 
             }
 
+        }
+    }
+
+    private void agedBrie(Item item) {
+        IncreaseQuality(item);
+
+        DecreaseSellIn(item);
+
+        if (item.sellIn < 0) {
+            IncreaseQuality(item);
         }
     }
 
