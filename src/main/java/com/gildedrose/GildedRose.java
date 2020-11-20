@@ -9,8 +9,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (final var item : items) {
-            final var wrapper = new ItemWrapper(item);
-            doSomething(wrapper);
+            doSomething(new ItemWrapper(item));
         }
     }
 
