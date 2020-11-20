@@ -7,26 +7,6 @@ class ItemWrapper {
         this.item = item;
     }
 
-    private void increaseQuality() {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
-    }
-
-    private void decreaseSellIn() {
-        item.sellIn = item.sellIn - 1;
-    }
-
-    private boolean isExpired() {
-        return item.sellIn < 0;
-    }
-
-    private void decreaseQuality() {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
-    }
-
     public void updateQuality() {
         if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return;
@@ -63,6 +43,26 @@ class ItemWrapper {
             if (isExpired()) {
                 decreaseQuality();
             }
+        }
+    }
+
+    private void increaseQuality() {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }
+
+    private void decreaseSellIn() {
+        item.sellIn = item.sellIn - 1;
+    }
+
+    private boolean isExpired() {
+        return item.sellIn < 0;
+    }
+
+    private void decreaseQuality() {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
         }
     }
 }
