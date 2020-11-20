@@ -37,7 +37,7 @@ class GildedRose {
                     item.quality = 0;
                 }
             } else {
-                if (true) {
+                if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
                     if (item.quality > 0) {
                         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                             item.quality = item.quality - 1;
